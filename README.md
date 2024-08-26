@@ -37,18 +37,107 @@ The GPU Marketplace dApp is a decentralized platform that allows users to rent G
 - **Utility:**
   - Used for payments, staking, governance, and rewards within the marketplace.
 
-#### 5. Smart Contracts
+It looks like there was a formatting error. Here is the correctly structured list:
+
+### 5. Smart Contracts
 
 - **On Ethereum (ETH):**
-  - **GPUToken.sol:** ERC-20 token contract with minting, burning, and transfer functions.
-  - **GPURental.sol:** Manages GPU rental agreements, uses GPUToken for payments.
-  - **StakingManager.sol:** Handles staking operations using GPUToken.
-  - **Governance.sol:** Manages decentralized governance, with GPUToken for voting.
-  - **TokenDistributor.sol:** Manages the distribution of GPUToken rewards.
+  1. **GPUToken.sol:** Implements ERC-20 token standard with minting, burning, and transfer functions.
+  2. **GPURental.sol:** Manages GPU rental agreements and facilitates payments using `GPUToken`.
+  3. **StakingManager.sol:** Handles staking operations where users stake `GPUToken`.
+  4. **Governance.sol:** Allows users to create, vote on, and execute governance proposals using `GPUToken`.
+  5. **TokenDistributor.sol:** Distributes rewards in `GPUToken` to eligible participants.
+  6. **UserRegistration.sol:** Registers users, assigns unique IDs, and stores their basic information.
+  7. **ProviderRegistration.sol:** Registers GPU providers, assigns unique IDs to nodes, and stores their basic information.
+  8. **PaymentProcessor.sol:** Manages deposits, withdrawals, and payments.
 
 - **On Ethereum Classic (ETC):**
-  - **WorkVerification.sol:** Assigns and verifies GPU work tasks.
-  - **ReputationSystem.sol:** Tracks and updates the reputation of GPU providers.
+  1. **WorkVerification.sol:** Assigns and verifies GPU work tasks completed by providers.
+  2. **ReputationSystem.sol:** Tracks and updates the reputation of GPU providers based on their performance.
+
+- **Cross-Chain Bridge Contracts:**
+  1. **ETHBridge.sol:** Facilitates cross-chain communication from Ethereum to Ethereum Classic.
+  2. **ETCBridge.sol:** Facilitates cross-chain communication from Ethereum Classic to Ethereum.
+
+### Detailed Descriptions of Key Contracts
+
+#### GPUToken.sol
+- **Function:** Implements ERC-20 functions for token management.
+- **Key Functions:**
+  - `mint()`: Mints new tokens.
+  - `burn()`: Burns tokens.
+  - `transfer()`: Transfers tokens between accounts.
+
+#### GPURental.sol
+- **Function:** Manages rental agreements using `GPUToken`.
+- **Key Functions:**
+  - `createRentalAgreement()`: Creates a new rental agreement.
+  - `completeRental()`: Marks a rental agreement as complete.
+  - `processPayment()`: Processes payment for the rental.
+
+#### StakingManager.sol
+- **Function:** Handles staking operations using `GPUToken`.
+- **Key Functions:**
+  - `stakeTokens()`: Stakes tokens to participate in the network.
+  - `unstakeTokens()`: Unstakes tokens.
+  - `getStakedAmount()`: Returns the amount of staked tokens.
+
+#### Governance.sol
+- **Function:** Manages proposals and voting.
+- **Key Functions:**
+  - `createProposal()`: Allows users to create a proposal.
+  - `vote()`: Allows users to vote on proposals.
+  - `executeProposal()`: Executes a proposal that has passed.
+
+#### TokenDistributor.sol
+- **Function:** Manages the distribution of `GPUToken` rewards.
+- **Key Functions:**
+  - `distributeRewards()`: Distributes rewards to eligible participants.
+  - `claimRewards()`: Allows users to claim their rewards.
+
+#### UserRegistration.sol
+- **Function:** Registers users, assigns unique IDs, and stores their basic information.
+- **Key Functions:**
+  - `registerUser()`: Registers a new user.
+  - `getUserInfo()`: Retrieves a user's information.
+
+#### ProviderRegistration.sol
+- **Function:** Registers GPU providers, assigns unique IDs to nodes, and stores their basic information.
+- **Key Functions:**
+  - `registerProvider()`: Registers a new GPU provider.
+  - `getProviderInfo()`: Retrieves a provider's information.
+
+#### PaymentProcessor.sol
+- **Function:** Manages deposits, withdrawals, and payments.
+- **Key Functions:**
+  - `deposit()`: Allows users to deposit `GPUToken` into the contract.
+  - `withdraw()`: Allows users to withdraw their deposited tokens.
+  - `makePayment()`: Facilitates payments from one user to another.
+  - `getBalance()`: Returns the balance of a user's account.
+
+#### WorkVerification.sol
+- **Function:** Verifies GPU work completed by providers.
+- **Key Functions:**
+  - `submitWork()`: Submits completed work for verification.
+  - `verifyWork()`: Verifies the submitted work.
+
+#### ReputationSystem.sol
+- **Function:** Tracks and updates the reputation of providers based on work verification results.
+- **Key Functions:**
+  - `updateReputation()`: Updates the reputation score of a provider.
+  - `getReputation()`: Retrieves the reputation score of a provider.
+
+#### ETHBridge.sol
+- **Function:** Facilitates cross-chain communication from Ethereum to Ethereum Classic.
+- **Key Functions:**
+  - `sendMessageToETC()`: Sends a message from Ethereum to Ethereum Classic.
+  - `receiveMessageFromETC()`: Receives a message from Ethereum Classic.
+
+#### ETCBridge.sol
+- **Function:** Facilitates cross-chain communication from Ethereum Classic to Ethereum.
+- **Key Functions:**
+  - `sendMessageToETH()`: Sends a message from Ethereum Classic to Ethereum.
+  - `receiveMessageFromETH()`: Receives a message from Ethereum.
 
 #### 6. Cross-Chain Communication
 
